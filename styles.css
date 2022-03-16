@@ -59,6 +59,7 @@ main{
     background-color: #f5f5f5;
     box-shadow: 3px 10px 15px 5px rgba(0,0,0,0.22);
     border-radius: 15px;
+    padding-bottom: 10px;
 }
 
 .images{
@@ -68,13 +69,25 @@ main{
     margin-left: 8px;
 }
 
-.counter{
-    margin-top: 5px;
-    padding-left: 66px;
+.btn{
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.19);
+    background-color: #FFFFFF;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 3px;
 }
 
-.plus{
-    margin-right: 25px;
+.quantity{
+    font-weight: lighter;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.counter{
+    padding-left: 50px;
 }
 
 .dish-title{
