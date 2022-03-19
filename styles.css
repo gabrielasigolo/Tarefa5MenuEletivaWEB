@@ -2,7 +2,7 @@ body{
     background-color: #c3c2c0;
 }
 
-main{
+#principal{
     width: 860px;
     height: 1730px;
     background-color: white;
@@ -142,4 +142,5 @@ main{
     background-color: #007aff;
     font-size: 17px;
     color: white;
+    cursor: pointer;
 }
