@@ -30,16 +30,16 @@ $(document).ready(function () {
 function Calc() {
     
     container.appendChild(divSaida);
-    container.style.height = '2000px';
+    container.style.height = '2070px';
     divSaida.style.marginLeft = '40px'
     divSaida.style.marginTop = '40px'
-    divSaida.style.fontSize = '18px'
+    divSaida.style.fontSize = '16px'
     divSaida.style.fontFamily = 'Arial';
 
     divSaida.innerHTML = `Caro(a) <strong>${document.getElementById('name').value}</strong><br><br><br> 
-                        Seguem os dados do seu pedido:<br><br>
+                        Seguem os dados do seu pedido.<br><br>
                         
-                        O seu pedido é:<br>`;
+                        O seu pedido é:<br><br>`;
                         showData();
 }
 
@@ -65,12 +65,13 @@ function showData() {
         if(input.value > 0){
             var mult = input.value * prods[input.id-1].price;
             divSaida.innerHTML += `<li>Prato: ${prods[input.id-1].name} - Preço unitário: ${formatter.format(prods[input.id-1].price)} - Quantidade: ${input.value} - Total: ${formatter.format(mult)}</li>`;
+            soma += mult;
         }
     }  
 
-    soma += mult;
+    
     var total = document.createElement('h3');
-    total.innerText = soma;
+    total.innerHTML = `<br>Preço final ${formatter.format(soma)}<br>`;
     divSaida.appendChild(total);
 
     return;
