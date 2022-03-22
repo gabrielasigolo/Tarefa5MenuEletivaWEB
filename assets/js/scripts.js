@@ -1,38 +1,31 @@
-var btnPlus = document.getElementsByClassName('plus');
-var btnMinus = document.getElementsByClassName('minus');
 var quantity = document.getElementsByClassName('quantity');
-var plusbuttonsCount = btnPlus.length;
-var minusbuttonsCount = btnMinus.length;
-var quantityCount = quantity.length;
 var currentNumber = 0;
 
-for(var i = 0; i < plusbuttonsCount; i+=1){
-    btnPlus[i].onclick = function increment(){
-             currentNumber++;
-             for(var j = 0; j < quantityCount; j+=1){
-                quantity[j].innerHTML = currentNumber;
-             }
-    };
-}
+var incrementPlus;
+var incrementMinus;
 
-for(var i = 0; i < minusbuttonsCount; i+=1){
-    btnMinus[i].onclick = function decrement(){
-            currentNumber--;
-            for(var j = 0; j < quantityCount; j+=1){
-                quantity[j].innerHTML = currentNumber;
-            }
-    }
-}
+var buttonPlus  = $(".cart-qty-plus");
+var buttonMinus = $(".cart-qty-minus");
 
-function increment(){
-    currentNumber++;
-    quantity.innerHTML = currentNumber;
-}
+var incrementPlus = buttonPlus.click(function() {
+	var $n = $(this)
+		.parent(".counter")
+		.parent(".card")
+		.find(".qty");
+	$n.val(Number($n.val())+1 );
+});
 
-function decrement(){
-    currentNumber--;
-    quantity.innerHTML = currentNumber;
-}
+var incrementMinus = buttonMinus.click(function() {
+		var $n = $(this)
+		.parent(".counter")
+		.parent(".card")
+		.find(".qty");
+	var amount = Number($n.val());
+	if (amount > 0) {
+		$n.val(amount-1);
+	}
+});
+
 
 $(document).ready(function () {
     $("#phone").mask("(99) 9999-99999");

@@ -70,7 +70,8 @@ body{
     margin-left: 8px;
 }
 
-.btn{
+.cart-qty-plus,
+.cart-qty-minus{
     height: 30px;
     width: 30px;
     border: 1px solid rgba(0, 0, 0, 0.19);
@@ -81,14 +82,13 @@ body{
 }
 
 .quantity{
-    font-weight: lighter;
-    margin-right: 10px;
-    margin-left: 10px;
-    font-size: 15px;
+    width: 8px;
+    height: 10px;
+    border: none;
 }
 
 .counter{
-    padding-left: 50px;
+    padding-left: 60px;
 }
 
 .dish-title{
