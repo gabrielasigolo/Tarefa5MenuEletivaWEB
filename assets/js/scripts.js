@@ -1,9 +1,5 @@
-var quantity = document.getElementsByClassName('quantity');
-var currentNumber = 0;
-
-var incrementPlus;
-var incrementMinus;
-
+var container = document.getElementById('principal');
+var divSaida = document.createElement('div');
 var buttonPlus  = $(".cart-qty-plus");
 var buttonMinus = $(".cart-qty-minus");
 
@@ -32,6 +28,50 @@ $(document).ready(function () {
 });
 
 function Calc() {
-    var container = document.getElementById('principal');
+    
+    container.appendChild(divSaida);
     container.style.height = '2000px';
+    divSaida.style.marginLeft = '40px'
+    divSaida.style.marginTop = '40px'
+    divSaida.style.fontSize = '18px'
+    divSaida.style.fontFamily = 'Arial';
+
+    divSaida.innerHTML = `Caro(a) <strong>${document.getElementById('name').value}</strong><br><br><br> 
+                        Seguem os dados do seu pedido:<br><br>
+                        
+                        O seu pedido é:<br>`;
+                        showData();
+}
+
+var prods = [
+    { id: 1, name: 'Bife com batata', price: 30},
+    { id: 2, name: 'Coxa de Frango Crocante', price: 25},
+    { id: 3, name: 'Carne de Panela', price: 22},
+    { id: 4, name: 'Farofa', price: 10},
+    { id: 5, name: 'Salada', price: 8},
+    { id: 6, name: 'Torresmo', price: 12},
+]
+
+function showData() {
+    var paymentInfo = document.createElement('ul');
+    var quantities = document.getElementsByName('qty');
+    var formatter = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+    });
+    var soma = 0;
+
+    for(let input of quantities){
+        if(input.value > 0){
+            var mult = input.value * prods[input.id-1].price;
+            divSaida.innerHTML += `<li>Prato: ${prods[input.id-1].name} - Preço unitário: ${formatter.format(prods[input.id-1].price)} - Quantidade: ${input.value} - Total: ${formatter.format(mult)}</li>`;
+        }
+    }  
+
+    soma += mult;
+    var total = document.createElement('h3');
+    total.innerText = soma;
+    divSaida.appendChild(total);
+
+    return;
 }
